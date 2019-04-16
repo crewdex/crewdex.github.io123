@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang=ru>
+
+<head>
+    <meta charset=utf-8>
+    <title>CrewDex | Покупки привилегий</title>
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <link rel=stylesheet href="template/main.css">
+    <link rel="shortcut icon" href="settings/favicon.png" type=image/x-icon>
+    <link rel=apple-touch-icon href="settings/favicon.png" sizes=180x180>
+    <link rel=icon href="settings/favicon.png" sizes=32x32 type=image/x-icon>
+    <link rel=manifest href="https://CrewDex.ru.ru/manifest.json">
+    <meta name=description content="Лучший игровой сервер!">
+    <meta name=author content="CrewDex">
+    <link rel=canonical href="https://CrewDex.ru/index.php">
+    <meta property=og:url content=https://CrewDex.ru.ru>
+    <meta property=og:type content=website>
+    <meta property=og:locale content=ru_RU>
+    <meta property=og:title content="Покупка игровых возможностей CrewDex">
+    <meta property=og:description content="Лучший игровой сервер!">
+    <meta name=theme-color content=#3c3c4c>
+    <meta name=msapplication-navbutton-color content=#3c3c4c>
+    <meta name=apple-mobile-web-app-status-bar-style content=#3c3c4c>
+</head>
+    <style>
+    body {
+	background-image: url('settings/fone.png');
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	background-attachment: fixed;
+}
+    </style>
+	   	<script type="text/javascript">
+	window.mcdCallback = function(previes){
+		//alert('Look at the console of your browser!');
+		console.log(previes);
+		
+		// Выводим список привилегий
+		var html = '';
+		for (var i = 0; i < previes.length; i++){
+			var item = previes[i] ;
+
+			// На каждую привилегию навешиваем событие, срабатывающее при нажатии мышкой. Внутри <div></div> может быть что угодно - картинка или тег.
+			html += '<option value="' + item.previ_id + '">' + item.title + ' - ' + item.price + ' руб.</option>';
+		}
+		
+		document.getElementById('groups').innerHTML = html;
+		
+		
+	}
+
+	window.mcdOnClick = function(_this){
+		
+		var previ_id = document.getElementById("groups").value;
+		var nickname = document.getElementById("nickname").value;
+			
+		// Производим перенаправление в магазин. Для этого в функцию отдаём номер привилегии
+		
+		mcdApi.setNickname(nickname);
+		mcdApi.buyPreviNative(previ_id);
+	};
+
+	</script>
+	<script type="text/javascript" src="https://mcdonate.ru/api/mcd_script.js?server_id=238939&callback=mcdCallback"></script>
+
+<body>
+    <div class=container style=margin-top:15px>
+	<center><p><img alt="" class="img-responsive" src="settings/2.png" width="500"></p></center>
+
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="alert alert-danger text-center" style="margin:0;padding:10px;border-radius:3px 3px 0 0">Успей купить «OWNER» по крутым скидкам 90%!</div>
+            <div class=panel style=margin-bottom:15px>
+                <div class="panel-header text-center">Покупка доната</div>
+                <div class=clearfix></div>
+                    <div class="container-fluid">
+                        <div class=clearfix style=padding-top:15px></div>
+                <div class="form-group">
+                  <input type="text" class="form-control gray" id="nickname" name="nickname" placeholder="Введите Ваш ник" required="required">
+                        <div class=clearfix style=padding-top:15px></div>
+                <div class="form-group">
+                  <select name="sum" class="form-control gray" id="groups" required>
+
+                  </select>
+					</div>	
+                    <div class=clearfix style=padding-top:15px></div>
+                <button onclick="window.mcdOnClick(this);" type="submit" id="buy_group" name="buy_group" id="buy_group" class="btn btn-bot btn-block" class="fa fa-shopping-cart"></i>Перейти к оплате</button>
+            </div>                      
+</center>
+<div class="foot" style="margin-top: 25px">
+  <br><small><b>Мы не являемся коммерческой организацией. Все средства идут на развитие проекта.<br></b></small>
+</div>
+        </div>
+        <div class="col-lg-offset-3 col-lg-6">
+        </div>
+    </div>
+    <div class=clearfix></div>
+    <div class=text-center style=margin-top:15px;margin-bottom:15px>
+</center>
+<br>
+<div>&nbsp;&nbsp;<a data-toggle=modal data-target=#call href="https://crewdon.ml/index.html#call">Контакты</a></div>
+        <div><font style="color: orange;">Crew</font>Dex © 2019. Все права защищены. <a href="http://KRAKK.ML/"><span class="label label-primary">krakk.ml</span></a> </div>
+
+    <div class="modal fade bd-example-modal-lg" id=call tabindex=-1 role=dialog aria-labelledby=call aria-hidden=true>
+        <div class="modal-dialog modal-lg">
+            <div class=modal-content>
+                <div class=modal-header>Контакты
+                    <button type=button class=close data-dismiss=modal aria-hidden=true>×</button>
+                </div>
+                <div class=modal-body>
+                    <h4 class=color-bot>Возникли вопросы?</h4>
+<p><b>Группа вк:</b> <a href="Группа вк">https://vk.com/crewcompanyq</a></p>
+<p><b>Почта:</b> krakk.official@inbox.ru</p>
+<p><b>VK:</b> <a href="https://vk.com/bartkarambos">https://vk.com/bartkarambos</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type=text/javascript src="template/main.js"></script>
+</body>
+</html>
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?151"></script>
+<!-- VK Widget -->
+<div id="vk_community_messages"></div>
+<script type="text/javascript">
+VK.Widgets.CommunityMessages("vk_community_messages", 142177620, {tooltipButtonText: "Есть вопрос?"});
+</script>
+ <!--[if gte IE 5]><script type="text/javascript">
+ createPopup().show( 0, 0, 0, 0, 0 );
+ </script><![endif]-->
+ <body oncontextmenu="return false;">
